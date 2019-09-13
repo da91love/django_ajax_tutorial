@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+test.py
+/.idea
+db.sqlite3
+log/*
+!log/.gitkeep
+upload/uploads/*
+.vscode/launch.json
+upload/migrations/0001_initial.py
