@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+    $('#selectItems').select2();
+    $('#selectItems').attr({'width':'100%'});
+
     /**
      * Ajax to setup csrftoken
      */

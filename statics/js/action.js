@@ -7,7 +7,7 @@ $(document).ready(function(){
         $.ajax({
             url : '/ajaxtest/response/',
             dataType : 'json',
-            data : {'data':inputVal},
+            data : {'data': inputVal},
             type : 'POST',
             content_type : "application/json",
             success: function(result){

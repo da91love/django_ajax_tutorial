@@ -1,0 +1,46 @@
+{% load staticfiles %}
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+
+
+{% with profile_form as f %}
+<form action="{% url 'formtest:form' %}" method="POST">
+    {% csrf_token %}
+
+    {# フィールドに属さない全体的なエラーの参照 #}
+    {% if f.errors %}
+        <p>{{ f.non_field_errors }}</p>
+    {% endif %}
+
+    <div>
+        <label>{{ f.name.label }}</label>:
+        {{ f.name }}
+        <p>{{ f.name.help_text }}</p>
+        {# フィールドに属しているエラーの参照 #}
+        <p>{{ f.name.errors }}</p>
+    </div>
+    <div>
+        <label>{{ f.age.label }}</label>:
+        {{ f.age }}
+        <p>{{ f.age.help_text }}</p>
+        {# フィールドに属しているエラーの参照 #}
+        <p>{{ f.age.errors }}</p>
+    </div>
+    <div>
+        <label>{{ f.city.label }}</label>:
+        {{ f.city }}
+    </div>
+    <input type="submit" value="送信">
+</form>
+{% endwith %}
+    <!-- bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <!-- custom -->
+    <script src="{% static 'js/init.js' %}"></script>
+
