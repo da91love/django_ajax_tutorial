@@ -9,9 +9,11 @@ def show_page(request):
     return render(request, 'ajaxtest/ajaxtest.html')
 
 def respond_to_ajax(request):
-    input_text = request.POST.get('data')
+    try:
+        if request.is_ajax():
+            if request.method == 'POST':
+                data = json.loads(request.body) #request.body is byte
+        return HttpResponse(json.dumps(data), content_type="application/json")
 
-    return HttpResponse(
-                json.dumps({'data':input_text}),
-                content_type="application/json"
-            )
+    except Exception as e:
+        return e
